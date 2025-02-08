@@ -1,3 +1,34 @@
+## Reward modeling Fine tuning
+
+Reward modeling involves training a model to predict the desirability of different outputs based on human feedback. This trained reward model can then guide the fine-tuning of language models, ensuring that their outputs align with human expectations and values.
+
+## dataset  example
+
+{"prompt": "What are the health benefits of regular exercise?", 
+"chosen": "Regular exercise improves cardiovascular health, strengthens muscles, enhances flexibility, boosts mental health, and aids in weight management.", 
+"rejected": "Regular exercise is good."}
+
+## Implementation Steps
+
+1. **Data Collection**:
+   - **Gather Human Preferences**: Collect datasets where human evaluators have ranked or rated model outputs based on their quality or relevance. For example, pairs of prompts with multiple responses ranked by preference.
+
+2. **Training the Reward Model**:
+   - **Model Selection**: Choose a base model architecture suitable for regression tasks, such as a transformer-based model.
+   - **Training Process**: Train the model to predict human preference scores from the collected data. This involves minimizing a loss function that measures the difference between the model's predictions and the actual human ratings.
+
+3. **Fine-Tuning with Reinforcement Learning**:
+   - **Integration**: Use the trained reward model to fine-tune your language model. This can be achieved through reinforcement learning algorithms that optimize the language model's outputs to maximize the reward predicted by the reward model.
+
+## Practical Resources
+
+- **Code Implementations**:
+  - The [Self-Rewarding Language Model](https://github.com/lucidrains/self-rewarding-lm-pytorch) repository provides an implementation of a training framework where a language model is trained to align with its own generated rewards.
+
+- **Tutorials**:
+  - The [Reinforcement Learning (DQN) Tutorial](https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html) by PyTorch offers insights into implementing reinforcement learning algorithms, which can be adapted for fine-tuning language models using reward models.
+
+
 # Gemma2(9b) Llama3-8B-Finetune-and-RAG
 
 This repository contains code for fine-tuning the Llama3 8B model and implementing Retrieval-Augmented Generation (RAG) on the Kaggle platform. Additionally, it includes work with the Gemma2 model, which has 9 billion parameters.
